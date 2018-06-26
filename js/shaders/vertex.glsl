@@ -1,4 +1,6 @@
-attribute vec3 position;
+precision mediump float;
+
+attribute vec4 position;
 attribute vec2 uv;
 uniform float time;
 //uniform mat4 projectionMatrix;
