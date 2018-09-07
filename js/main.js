@@ -25,6 +25,7 @@
 		console.error("Error loading shader ", error);
 	}
 
+	//use arrow funcs?
 	function loadShaders(vertexPath, fragmentPath, error){
 		var vertexShader;
 		var fragmentShader;
@@ -129,6 +130,15 @@
   		
   		var self = this;
 
+  		// todo change this
+  		var focused = true;
+  		document.addEventListener("focus", function(){
+  			focused = true;
+  		});
+  		document.addEventListener("blur", function(){
+  			focused = false;
+  		});
+
 		this.render = function(time) {
 			gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 			gl.useProgram(programInfo.program);
@@ -158,7 +168,9 @@
     		var vertexCount = 4;
 			gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
 
-		    requestAnimationFrame(self.render);
+			if(focused){
+		    	// requestAnimationFrame(self.render);
+			}
 		}
 	}
 
